@@ -8,7 +8,7 @@ import {
   DRIZZLE
 } from './../constants/weathers';
 
-const getTemp = temp => convert(temp).from('K').to('C').toFixed(2);
+const getTemp = temp => convert(temp).from('K').to('C').toFixed(0);
 
 const getWeatherState = ({id}) => {
   if (id < 300) {
