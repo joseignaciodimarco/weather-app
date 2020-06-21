@@ -26,9 +26,9 @@ const getWeatherState = ({id}) => {
   }
 }
 
-const transformWeather = ({ humidity, temp }, { speed}, weather) => {
+const transformWeather = ({ humidity, temp }, { speed }, weather) => {
   return {
-    humidity: humidity,
+    humidity,
     temperature: getTemp(temp),
     weatherState: getWeatherState(weather[0]),
     wind: `${speed} m/s`

@@ -1,13 +1,13 @@
 import React from 'react';
 import WeatherLocation from './WeatherLocation';
+import './styles.css';
 
 const LocationList =({ cities,  onSelectedLocation}) => {
   const handleWeatherLocationClick = city => {
-    console.log('handleWeatherLocationClick');
     onSelectedLocation(city);
   }
   return (
-    <div>
+    <div className='locationList'>
       {
       cities.map(city => 
         <WeatherLocation 
