@@ -7,20 +7,15 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Col, Row } from 'react-flexbox-grid';
-import { createStore } from 'redux';
+import { setCity } from './actions';
+import { store } from './store';
 
 const cities = [
   'Buenos Aires,ar',
   'Washington,us',
   'Ciudad de Mexico,mx',
   'Madrid,es'
-],
-  store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
-  setCity = value => ({
-    type: 'setCity',
-    value
-  });
-
+];
 class App extends Component {
   constructor() {
     super();
