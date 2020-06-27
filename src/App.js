@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import LocationList from './components/LocationList';
 import ForecastExtended from './components/ForecastExtended';
@@ -8,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Col, Row } from 'react-flexbox-grid';
 import { setCity } from './actions';
-import { store } from './store';
 
 const cities = [
   'Buenos Aires,ar',
@@ -16,6 +16,7 @@ const cities = [
   'Ciudad de Mexico,mx',
   'Madrid,es'
 ];
+
 class App extends Component {
   constructor() {
     super();
@@ -28,7 +29,7 @@ class App extends Component {
     this.setState({
       city
     });
-    store.dispatch(setCity(city));
+    this.props.setCity(city);
   }
 
   render() {
@@ -66,4 +67,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToPropsActions = dispatch => ({
+  setCity: value => dispatch(setCity(value))
+});
+
+export default connect(null, mapDispatchToPropsActions)(App);
